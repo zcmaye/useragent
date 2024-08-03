@@ -1,5 +1,4 @@
 ﻿#include "UserAgent.h"
-#include "BaseEnum.hpp"
 #include <iostream>
 
 int main(int argc, char* argv[])
