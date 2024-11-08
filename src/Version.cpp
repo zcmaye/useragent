@@ -31,8 +31,8 @@ int Version::compare(const Version& other)const
 		return 1;
 	}
 
-	auto versionParts = Utils::split(m_version, '\\.');
-	auto otherVersionParts = Utils::split(other.m_version, '\\.');
+	auto versionParts = Utils::split(m_version, '.');
+	auto otherVersionParts = Utils::split(other.m_version, '.');
 
 	for (int i = 0; i < std::min(versionParts.size(), otherVersionParts.size()); i++) {
 		if (versionParts[i].size() == otherVersionParts[i].size()) {

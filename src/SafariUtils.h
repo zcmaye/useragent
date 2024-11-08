@@ -194,7 +194,7 @@ public:
 			for (auto& pair : webKitToSafariVersion) {
 				std::string webKitVersion = pair[0];
 				std::string browserVersion = pair[1];
-				std::vector<std::string> parts = Utils::split(browserVersion, '\\.');
+				std::vector<std::string> parts = Utils::split(browserVersion, '.');
 				std::string majorVersion = parts[0];
 				std::string minorVersion = parts.size() > 1 ? parts[1] : "";
 				Version version = Version(browserVersion, majorVersion, minorVersion);

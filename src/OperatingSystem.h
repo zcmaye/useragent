@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <regex>
+#include <cstdint>
 
 /**
  * Enum constants for most common operating systems.
