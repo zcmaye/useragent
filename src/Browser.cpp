@@ -19,7 +19,7 @@ ZCENUM_V(Browser,OUTLOOK2010,&Manufacturer::MICROSOFT,&Browser::OUTLOOK, 108, "O
 /**
  * Family of Internet Explorer browsers
  */
-ZCENUM_V(Browser,IE,&Manufacturer::MICROSOFT,{}, 1, "Internet Explorer", { "MSIE", "Trident", "IE " }, { "BingPreview", "Xbox", "Xbox One" }, &BrowserType::WEB_BROWSER, &RenderingEngine::TRIDENT, std::make_shared<PatternBasedVersionFetcher>("MSIE (([\\d]+)\\.([\\w]+))"));// before Mozilla
+ZCENUM_V(Browser,IE,&Manufacturer::MICROSOFT,{}, 1, "Internet Explorer", { "MSIE", "Trident", "IE " }, { "BingPreview", "Xbox", "Xbox One" }, &BrowserType::WEB_BROWSER, &RenderingEngine::TRIDENT, std::make_shared<PatternBasedVersionFetcher>("MSIE (([\\d]+).([\\w]+))"));// before Mozilla
 /**
  * Since version 7 Outlook Express is identifying itself. By detecting Outlook Express we can not
  * identify the Internet Explorer version which is probably used for the rendering.
@@ -30,13 +30,13 @@ ZCENUM_V(Browser,OUTLOOK_EXPRESS7,&Manufacturer::MICROSOFT,&Browser::IE, 110, "W
  * Since 2007 the mobile edition of Internet Explorer identifies itself as IEMobile in the user-agent.
  * If previous versions have to be detected, use the operating system information as well.
  */
-ZCENUM_V(Browser,IEMOBILE11,&Manufacturer::MICROSOFT,&Browser::IE, 125, "IE Mobile 11",  { "IEMobile/11" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::TRIDENT, std::make_shared<PatternBasedVersionFetcher>("(?:Trident\\/7|IE)(?:\\.[0-9]*;)?(?:.*rv:| )(([0-9]+)\\.?([0-9]+))"));// before Mozilla
+ZCENUM_V(Browser,IEMOBILE11,&Manufacturer::MICROSOFT,&Browser::IE, 125, "IE Mobile 11",  { "IEMobile/11" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::TRIDENT, std::make_shared<PatternBasedVersionFetcher>("(?:Trident\\/7|IE)(?:.[0-9]*;)?(?:.*rv:| )(([0-9]+).?([0-9]+))"));// before Mozilla
 ZCENUM_V(Browser,IEMOBILE10,&Manufacturer::MICROSOFT,&Browser::IE, 124, "IE Mobile 10",  { "IEMobile/10" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::TRIDENT, {});// before MSIE strings
 ZCENUM_V(Browser,IEMOBILE9,&Manufacturer::MICROSOFT,&Browser::IE, 123, "IE Mobile 9",  { "IEMobile/9" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::TRIDENT, {});// before MSIE strings
 ZCENUM_V(Browser,IEMOBILE7,&Manufacturer::MICROSOFT,&Browser::IE, 121, "IE Mobile 7",  { "IEMobile 7" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::TRIDENT, {});// before MSIE strings
 ZCENUM_V(Browser,IEMOBILE6,&Manufacturer::MICROSOFT,&Browser::IE, 120, "IE Mobile 6",  { "IEMobile 6" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::TRIDENT, {});// before MSIE
 ZCENUM_V(Browser,IE_XBOX,&Manufacturer::MICROSOFT,&Browser::IE, 360, "Xbox", { "xbox" }, {}, &BrowserType::WEB_BROWSER, &RenderingEngine::TRIDENT, {});
-ZCENUM_V(Browser,IE11,&Manufacturer::MICROSOFT,&Browser::IE, 95, "Internet Explorer 11",  { "Trident/7", "IE 11." },  {"MSIE 7", "BingPreview"}, &BrowserType::WEB_BROWSER, &RenderingEngine::TRIDENT, std::make_shared<PatternBasedVersionFetcher>("(?:Trident\\/7|IE)(?:\\.[0-9]*;)?(?:.*rv:| )(([0-9]+)\\.?([0-9]+))"));//  // before Mozilla
+ZCENUM_V(Browser,IE11,&Manufacturer::MICROSOFT,&Browser::IE, 95, "Internet Explorer 11",  { "Trident/7", "IE 11." },  {"MSIE 7", "BingPreview"}, &BrowserType::WEB_BROWSER, &RenderingEngine::TRIDENT, std::make_shared<PatternBasedVersionFetcher>("(?:Trident\\/7|IE)(?:.[0-9]*;)?(?:.*rv:| )(([0-9]+).?([0-9]+))"));//  // before Mozilla
 ZCENUM_V(Browser,IE10,&Manufacturer::MICROSOFT,&Browser::IE, 92, "Internet Explorer 10",  { "MSIE 10" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::TRIDENT, {});//  // before MSIE
 ZCENUM_V(Browser,IE9,&Manufacturer::MICROSOFT,&Browser::IE, 90, "Internet Explorer 9",  { "MSIE 9" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::TRIDENT, {});//  // before MSIE
 ZCENUM_V(Browser,IE8,&Manufacturer::MICROSOFT,&Browser::IE, 80, "Internet Explorer 8",  { "MSIE 8" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::TRIDENT, {});//  // before MSIE
@@ -51,7 +51,7 @@ ZCENUM_V(Browser,IE5,&Manufacturer::MICROSOFT,&Browser::IE, 50, "Internet Explor
  * For instance 14.14332 is Edge 37 while 14.14342 is Edge 38. User agent only provides the version of the rendering engine.
  * @see <a href="https://en.wikipedia.org/wiki/Microsoft_Edge#Release_history">Microsoft Edge release history</a>
  */
-ZCENUM_V(Browser,EDGE,&Manufacturer::MICROSOFT,{}, 300, "Microsoft Edge", { "Edge" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::EDGE_HTML, std::make_shared<PatternBasedVersionFetcher>("(?:Edge\\/(([0-9]+)\\.([0-9]*)))"));
+ZCENUM_V(Browser,EDGE,&Manufacturer::MICROSOFT,{}, 300, "Microsoft Edge", { "Edge" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::EDGE_HTML, std::make_shared<PatternBasedVersionFetcher>("(?:Edge\\/(([0-9]+).([0-9]*)))"));
 ZCENUM_V(Browser,EDGE_MOBILE,&Manufacturer::MICROSOFT,&Browser::EDGE, 304, "Microsoft Edge Mobile",  {"Mobile Safari"},{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::EDGE_HTML, {});
 ZCENUM_V(Browser,EDGE_MOBILE15,&Manufacturer::MICROSOFT,&Browser::EDGE_MOBILE, 310, "Microsoft Edge Mobile (layout engine 15)",  {"Edge/15"},{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::EDGE_HTML, {});
 ZCENUM_V(Browser,EDGE_MOBILE14,&Manufacturer::MICROSOFT,&Browser::EDGE_MOBILE, 307, "Microsoft Edge Mobile (layout engine 14)",  {"Edge/14"},{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::EDGE_HTML, {});
@@ -66,8 +66,8 @@ ZCENUM_V(Browser,EDGE12,&Manufacturer::MICROSOFT,&Browser::EDGE, 301, "Microsoft
 /**
  * Google Chrome browser
  */
-ZCENUM_V(Browser,CHROME,&Manufacturer::GOOGLE,{}, 1, "Chrome", { "Chrome", "CrMo", "CriOS" }, { "OPR/", "Web Preview", "Vivaldi" }, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("Chrome\\/(([0-9]+)\\.?([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));// before Mozilla
-ZCENUM_V(Browser,CHROME_MOBILE,&Manufacturer::GOOGLE,&Browser::CHROME, 100, "Chrome Mobile", { "CrMo","CriOS", "Mobile Safari" }, { "OPR/" }, &BrowserType::MOBILE_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("(?:CriOS|CrMo|Chrome)\\/(([0-9]+)\\.?([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
+ZCENUM_V(Browser,CHROME,&Manufacturer::GOOGLE,{}, 1, "Chrome", { "Chrome", "CrMo", "CriOS" }, { "OPR/", "Web Preview", "Vivaldi" }, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("Chrome\\/(([0-9]+).?([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));// before Mozilla
+ZCENUM_V(Browser,CHROME_MOBILE,&Manufacturer::GOOGLE,&Browser::CHROME, 100, "Chrome Mobile", { "CrMo","CriOS", "Mobile Safari" }, { "OPR/" }, &BrowserType::MOBILE_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("(?:CriOS|CrMo|Chrome)\\/(([0-9]+).?([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
 ZCENUM_V(Browser,CHROME65,&Manufacturer::GOOGLE,&Browser::CHROME, 71, "Chrome 65", { "Chrome/65" }, { "OPR/", "Web Preview", "Vivaldi" }, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, {});// before Mozilla
 ZCENUM_V(Browser,CHROME64,&Manufacturer::GOOGLE,&Browser::CHROME, 70, "Chrome 64",  { "Chrome/64" },  { "OPR/", "Web Preview", "Vivaldi" }, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, {});// before Mozilla
 ZCENUM_V(Browser,CHROME63,&Manufacturer::GOOGLE,&Browser::CHROME, 69, "Chrome 63",  { "Chrome/63" },  { "OPR/", "Web Preview", "Vivaldi" }, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, {});// before Mozilla
@@ -129,7 +129,7 @@ ZCENUM_V(Browser,CHROME8,&Manufacturer::GOOGLE,&Browser::CHROME, 5, "Chrome 8", 
 
 ZCENUM_V(Browser,OMNIWEB,&Manufacturer::OTHER,{}, 2, "Omniweb", { "OmniWeb" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, {});//
 
-ZCENUM_V(Browser,FIREFOX,&Manufacturer::MOZILLA,{}, 10, "Firefox",  { "Firefox", "FxiOS" },  {"camino", "flock", "ggpht.com", "WordPress.com mShots"}, &BrowserType::WEB_BROWSER, &RenderingEngine::GECKO, std::make_shared<PatternBasedVersionFetcher>("Firefox\\/(([0-9]+)\\.?([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));// // using Gecko Engine
+ZCENUM_V(Browser,FIREFOX,&Manufacturer::MOZILLA,{}, 10, "Firefox",  { "Firefox", "FxiOS" },  {"camino", "flock", "ggpht.com", "WordPress.com mShots"}, &BrowserType::WEB_BROWSER, &RenderingEngine::GECKO, std::make_shared<PatternBasedVersionFetcher>("Firefox\\/(([0-9]+).?([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));// // using Gecko Engine
 ZCENUM_V(Browser,FIREFOX3MOBILE,&Manufacturer::MOZILLA,&Browser::FIREFOX, 31, "Firefox 3 Mobile", { "Firefox/3.5 Maemo" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::GECKO, {});// // using Gecko Engine
 ZCENUM_V(Browser,FIREFOX_MOBILE,&Manufacturer::MOZILLA,&Browser::FIREFOX, 200, "Firefox Mobile",  { "Mobile" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::GECKO, {});// // using Gecko Engine
 ZCENUM_V(Browser,FIREFOX_MOBILE23,&Manufacturer::MOZILLA,&Browser::FIREFOX_MOBILE, 223, "Firefox Mobile 23", { "Firefox/23" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::GECKO, {});// // using Gecko Engine
@@ -200,13 +200,13 @@ ZCENUM_V(Browser,FIREFOX1_5,&Manufacturer::MOZILLA,&Browser::FIREFOX, 15, "Firef
 
 ZCENUM_V(Browser,SAFARI,&Manufacturer::APPLE,{}, 1, "Safari", { "Safari" }, { "bot", "preview", "OPR/", "Coast/", "Vivaldi","CFNetwork", "Phantom" }, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT,
 		std::make_shared<SequentialVersionFetcher>(std::initializer_list<VersionFetcher::ptr>{
-				std::make_shared<PatternBasedVersionFetcher>("Version\\/(([0-9]+)\\.?([\\w]+)?(\\.[\\w]+)?)"), // before AppleWebKit
+				std::make_shared<PatternBasedVersionFetcher>("Version\\/(([0-9]+).?([\\w]+)?(.[\\w]+)?)"), // before AppleWebKit
 				std::make_shared<VersionFetcherFromMap>(std::regex("AppleWebKit/(\\d+(?:.\\d+){1,2})"), SafariUtils::instance()->getWebKitToSafariVersion())
 		})
 );
 ZCENUM_V(Browser,BLACKBERRY10 ,&Manufacturer::BLACKBERRY,&Browser::SAFARI, 10, "BlackBerry", { "BB10" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::WEBKIT, {});
 ZCENUM_V(Browser,MOBILE_SAFARI ,&Manufacturer::APPLE,&Browser::SAFARI, 2, "Mobile Safari", { "Mobile Safari","Mobile/" }, { "bot", "preview", "OPR/", "Coast/", "Vivaldi", "CFNetwork", "FxiOS" }, &BrowserType::MOBILE_BROWSER, &RenderingEngine::WEBKIT, {});// // before Safari
-ZCENUM_V(Browser,SILK ,&Manufacturer::AMAZON,&Browser::SAFARI, 15, "Silk", { "Silk/" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("Silk\\/(([0-9]+)\\.?([\\w]+)?(\\.[\\w]+)?(\\-[\\w]+)?)"));// // http://en.wikipedia.org/wiki/Amazon_Silk
+ZCENUM_V(Browser,SILK ,&Manufacturer::AMAZON,&Browser::SAFARI, 15, "Silk", { "Silk/" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("Silk\\/(([0-9]+).?([\\w]+)?(.[\\w]+)?(\\-[\\w]+)?)"));// // http://en.wikipedia.org/wiki/Amazon_Silk
 ZCENUM_V(Browser,SAFARI11 ,&Manufacturer::APPLE,&Browser::SAFARI, 12, "Safari 11", { "Version/11" }, { "bot" }, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, {});// // before AppleWebKit
 ZCENUM_V(Browser,SAFARI10 ,&Manufacturer::APPLE,&Browser::SAFARI, 11, "Safari 10",  { "Version/10" },  { "bot" }, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, {});// // before AppleWebKit
 ZCENUM_V(Browser,SAFARI9 ,&Manufacturer::APPLE,&Browser::SAFARI, 9, "Safari 9", { "Version/9" }, { "bot" }, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, {});// // before AppleWebKit
@@ -219,45 +219,45 @@ ZCENUM_V(Browser,SAFARI4 ,&Manufacturer::APPLE,&Browser::SAFARI, 4, "Safari 4", 
 /**
  * Opera Coast mobile browser, http://en.wikipedia.org/wiki/Opera_Coast
  */
-ZCENUM_V(Browser,COAST,&Manufacturer::OPERA,{}, 500, "Opera", { " Coast/" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("Coast\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,COAST1,&Manufacturer::OPERA,&Browser::COAST, 501, "Opera", { " Coast/1." },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("Coast\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
+ZCENUM_V(Browser,COAST,&Manufacturer::OPERA,{}, 500, "Opera", { " Coast/" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("Coast\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,COAST1,&Manufacturer::OPERA,&Browser::COAST, 501, "Opera", { " Coast/1." },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("Coast\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
 
-ZCENUM_V(Browser,OPERA,&Manufacturer::OPERA,{}, 1, "Opera", { " OPR/", "Opera" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::PRESTO, std::make_shared<PatternBasedVersionFetcher>("[o][p][e]?[r][a]?\\/(([\\d]+)\\.([\\w]+)(\\.([\\w]+))?(\\.([\\w]+))?)"));//  // before MSIE
-ZCENUM_V(Browser,OPERA_MOBILE,&Manufacturer::OPERA,&Browser::OPERA, 100, "Opera Mobile", { "Mobile Safari" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::BLINK, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));// Another Opera for mobile devices
+ZCENUM_V(Browser,OPERA,&Manufacturer::OPERA,{}, 1, "Opera", { " OPR/", "Opera" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::PRESTO, std::make_shared<PatternBasedVersionFetcher>("[o][p][e]?[r][a]?\\/(([\\d]+).([\\w]+)(.([\\w]+))?(.([\\w]+))?)"));//  // before MSIE
+ZCENUM_V(Browser,OPERA_MOBILE,&Manufacturer::OPERA,&Browser::OPERA, 100, "Opera Mobile", { "Mobile Safari" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::BLINK, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));// Another Opera for mobile devices
 ZCENUM_V(Browser,OPERA_MINI,&Manufacturer::OPERA,&Browser::OPERA, 20, "Opera Mini", { "Opera Mini" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::PRESTO, {});// Opera for mobile devices
-ZCENUM_V(Browser,OPERA51,&Manufacturer::OPERA,&Browser::OPERA, 51, "Opera 51", { "OPR/51." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA50,&Manufacturer::OPERA,&Browser::OPERA, 50, "Opera 50",  { "OPR/50." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA49,&Manufacturer::OPERA,&Browser::OPERA, 49, "Opera 49",  { "OPR/49." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA48,&Manufacturer::OPERA,&Browser::OPERA, 48, "Opera 48",  { "OPR/48." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA47,&Manufacturer::OPERA,&Browser::OPERA, 47, "Opera 47",  { "OPR/47." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA46,&Manufacturer::OPERA,&Browser::OPERA, 46, "Opera 46",  { "OPR/46." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA45,&Manufacturer::OPERA,&Browser::OPERA, 45, "Opera 45",  { "OPR/45." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA44,&Manufacturer::OPERA,&Browser::OPERA, 44, "Opera 44",  { "OPR/44." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA43,&Manufacturer::OPERA,&Browser::OPERA, 43, "Opera 43",  { "OPR/43." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA42,&Manufacturer::OPERA,&Browser::OPERA, 42, "Opera 42",  { "OPR/42." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA34,&Manufacturer::OPERA,&Browser::OPERA, 34, "Opera 34",  { "OPR/34." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA33,&Manufacturer::OPERA,&Browser::OPERA, 33, "Opera 33",  { "OPR/33." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA32,&Manufacturer::OPERA,&Browser::OPERA, 32, "Opera 32",  { "OPR/32." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA31,&Manufacturer::OPERA,&Browser::OPERA, 31, "Opera 31",  { "OPR/31." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA30,&Manufacturer::OPERA,&Browser::OPERA, 30, "Opera 30",  { "OPR/30." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA29,&Manufacturer::OPERA,&Browser::OPERA, 29, "Opera 29",  { "OPR/29." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA28,&Manufacturer::OPERA,&Browser::OPERA, 28, "Opera 28",  { "OPR/28." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA27,&Manufacturer::OPERA,&Browser::OPERA, 27, "Opera 27",  { "OPR/27." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA26,&Manufacturer::OPERA,&Browser::OPERA, 26, "Opera 26",  { "OPR/26." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA25,&Manufacturer::OPERA,&Browser::OPERA, 25, "Opera 25",  { "OPR/25." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA24,&Manufacturer::OPERA,&Browser::OPERA, 24, "Opera 24",  { "OPR/24." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA23,&Manufacturer::OPERA,&Browser::OPERA, 23, "Opera 23",  { "OPR/23." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA20,&Manufacturer::OPERA,&Browser::OPERA, 21, "Opera 20",  { "OPR/20." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA19,&Manufacturer::OPERA,&Browser::OPERA, 19, "Opera 19",  { "OPR/19." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA18,&Manufacturer::OPERA,&Browser::OPERA, 18, "Opera 18",  { "OPR/18." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA17,&Manufacturer::OPERA,&Browser::OPERA, 17, "Opera 17",  { "OPR/17." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA16,&Manufacturer::OPERA,&Browser::OPERA, 16, "Opera 16",  { "OPR/16." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA15,&Manufacturer::OPERA,&Browser::OPERA, 15, "Opera 15",  { "OPR/15." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+)\\.([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));
-ZCENUM_V(Browser,OPERA12,&Manufacturer::OPERA,&Browser::OPERA, 12, "Opera 12",  { "Opera/12", "Version/12." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::PRESTO, std::make_shared<PatternBasedVersionFetcher>("Version\\/(([\\d]+)\\.([\\w]+))"));
-ZCENUM_V(Browser,OPERA11,&Manufacturer::OPERA,&Browser::OPERA, 11, "Opera 11",  { "Version/11." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::PRESTO, std::make_shared<PatternBasedVersionFetcher>("Version\\/(([\\d]+)\\.([\\w]+))"));
-ZCENUM_V(Browser,OPERA10,&Manufacturer::OPERA,&Browser::OPERA, 10, "Opera 10",  { "Opera/9.8" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::PRESTO, std::make_shared<PatternBasedVersionFetcher>("Version\\/(([\\d]+)\\.([\\w]+))"));
+ZCENUM_V(Browser,OPERA51,&Manufacturer::OPERA,&Browser::OPERA, 51, "Opera 51", { "OPR/51." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA50,&Manufacturer::OPERA,&Browser::OPERA, 50, "Opera 50",  { "OPR/50." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA49,&Manufacturer::OPERA,&Browser::OPERA, 49, "Opera 49",  { "OPR/49." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA48,&Manufacturer::OPERA,&Browser::OPERA, 48, "Opera 48",  { "OPR/48." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA47,&Manufacturer::OPERA,&Browser::OPERA, 47, "Opera 47",  { "OPR/47." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA46,&Manufacturer::OPERA,&Browser::OPERA, 46, "Opera 46",  { "OPR/46." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA45,&Manufacturer::OPERA,&Browser::OPERA, 45, "Opera 45",  { "OPR/45." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA44,&Manufacturer::OPERA,&Browser::OPERA, 44, "Opera 44",  { "OPR/44." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA43,&Manufacturer::OPERA,&Browser::OPERA, 43, "Opera 43",  { "OPR/43." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA42,&Manufacturer::OPERA,&Browser::OPERA, 42, "Opera 42",  { "OPR/42." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA34,&Manufacturer::OPERA,&Browser::OPERA, 34, "Opera 34",  { "OPR/34." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA33,&Manufacturer::OPERA,&Browser::OPERA, 33, "Opera 33",  { "OPR/33." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA32,&Manufacturer::OPERA,&Browser::OPERA, 32, "Opera 32",  { "OPR/32." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA31,&Manufacturer::OPERA,&Browser::OPERA, 31, "Opera 31",  { "OPR/31." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA30,&Manufacturer::OPERA,&Browser::OPERA, 30, "Opera 30",  { "OPR/30." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA29,&Manufacturer::OPERA,&Browser::OPERA, 29, "Opera 29",  { "OPR/29." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA28,&Manufacturer::OPERA,&Browser::OPERA, 28, "Opera 28",  { "OPR/28." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA27,&Manufacturer::OPERA,&Browser::OPERA, 27, "Opera 27",  { "OPR/27." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA26,&Manufacturer::OPERA,&Browser::OPERA, 26, "Opera 26",  { "OPR/26." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA25,&Manufacturer::OPERA,&Browser::OPERA, 25, "Opera 25",  { "OPR/25." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA24,&Manufacturer::OPERA,&Browser::OPERA, 24, "Opera 24",  { "OPR/24." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA23,&Manufacturer::OPERA,&Browser::OPERA, 23, "Opera 23",  { "OPR/23." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA20,&Manufacturer::OPERA,&Browser::OPERA, 21, "Opera 20",  { "OPR/20." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA19,&Manufacturer::OPERA,&Browser::OPERA, 19, "Opera 19",  { "OPR/19." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA18,&Manufacturer::OPERA,&Browser::OPERA, 18, "Opera 18",  { "OPR/18." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA17,&Manufacturer::OPERA,&Browser::OPERA, 17, "Opera 17",  { "OPR/17." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA16,&Manufacturer::OPERA,&Browser::OPERA, 16, "Opera 16",  { "OPR/16." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA15,&Manufacturer::OPERA,&Browser::OPERA, 15, "Opera 15",  { "OPR/15." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::WEBKIT, std::make_shared<PatternBasedVersionFetcher>("OPR\\/(([\\d]+).([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));
+ZCENUM_V(Browser,OPERA12,&Manufacturer::OPERA,&Browser::OPERA, 12, "Opera 12",  { "Opera/12", "Version/12." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::PRESTO, std::make_shared<PatternBasedVersionFetcher>("Version\\/(([\\d]+).([\\w]+))"));
+ZCENUM_V(Browser,OPERA11,&Manufacturer::OPERA,&Browser::OPERA, 11, "Opera 11",  { "Version/11." },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::PRESTO, std::make_shared<PatternBasedVersionFetcher>("Version\\/(([\\d]+).([\\w]+))"));
+ZCENUM_V(Browser,OPERA10,&Manufacturer::OPERA,&Browser::OPERA, 10, "Opera 10",  { "Opera/9.8" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::PRESTO, std::make_shared<PatternBasedVersionFetcher>("Version\\/(([\\d]+).([\\w]+))"));
 ZCENUM_V(Browser,OPERA9,&Manufacturer::OPERA,&Browser::OPERA, 5, "Opera 9", { "Opera/9" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::PRESTO, {});
-ZCENUM_V(Browser,KONQUEROR,&Manufacturer::OTHER,{}, 1, "Konqueror", { "Konqueror" }, { "Exabot" }, &BrowserType::WEB_BROWSER, &RenderingEngine::KHTML, std::make_shared<PatternBasedVersionFetcher>("Konqueror\\/(([0-9]+)\\.?([\\w]+)?(-[\\w]+)?)"));
+ZCENUM_V(Browser,KONQUEROR,&Manufacturer::OTHER,{}, 1, "Konqueror", { "Konqueror" }, { "Exabot" }, &BrowserType::WEB_BROWSER, &RenderingEngine::KHTML, std::make_shared<PatternBasedVersionFetcher>("Konqueror\\/(([0-9]+).?([\\w]+)?(-[\\w]+)?)"));
 
 ZCENUM_V(Browser,DOLFIN2,&Manufacturer::SAMSUNG,{}, 1, "Samsung Dolphin 2", { "Dolfin/2" },{}, &BrowserType::MOBILE_BROWSER, &RenderingEngine::WEBKIT, {});// webkit based browser for the bada os
 
@@ -269,17 +269,17 @@ ZCENUM_V(Browser,APPLE_ITUNES,&Manufacturer::APPLE,&Browser::APPLE_WEB_KIT, 52, 
 ZCENUM_V(Browser,APPLE_APPSTORE,&Manufacturer::APPLE,&Browser::APPLE_WEB_KIT, 53, "App Store", { "MacAppStore" },{}, &BrowserType::APP, &RenderingEngine::WEBKIT, {});// Microsoft Entrourage/Outlook 2010 also only identifies itself as AppleWebKit
 ZCENUM_V(Browser,ADOBE_AIR,&Manufacturer::ADOBE,&Browser::APPLE_WEB_KIT, 1, "Adobe AIR application", { "AdobeAIR" },{}, &BrowserType::APP, &RenderingEngine::WEBKIT, {});// Microsoft Entrourage/Outlook 2010 also only identifies itself as AppleWebKit
 
-ZCENUM_V(Browser,LOTUS_NOTES,&Manufacturer::OTHER,{}, 3, "Lotus Notes", { "Lotus-Notes" },{}, &BrowserType::EMAIL_CLIENT, &RenderingEngine::OTHER, std::make_shared<PatternBasedVersionFetcher>("Lotus-Notes\\/(([\\d]+)\\.([\\w]+))"));// // before Mozilla
+ZCENUM_V(Browser,LOTUS_NOTES,&Manufacturer::OTHER,{}, 3, "Lotus Notes", { "Lotus-Notes" },{}, &BrowserType::EMAIL_CLIENT, &RenderingEngine::OTHER, std::make_shared<PatternBasedVersionFetcher>("Lotus-Notes\\/(([\\d]+).([\\w]+))"));// // before Mozilla
 
-ZCENUM_V(Browser,CAMINO,&Manufacturer::OTHER,{}, 5, "Camino", { "Camino" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::GECKO, std::make_shared<PatternBasedVersionFetcher>("Camino\\/(([0-9]+)\\.?([\\w]+)?(\\.[\\w]+)?)"));// // using Gecko Engine
+ZCENUM_V(Browser,CAMINO,&Manufacturer::OTHER,{}, 5, "Camino", { "Camino" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::GECKO, std::make_shared<PatternBasedVersionFetcher>("Camino\\/(([0-9]+).?([\\w]+)?(.[\\w]+)?)"));// // using Gecko Engine
 ZCENUM_V(Browser,CAMINO2,&Manufacturer::OTHER,&Browser::CAMINO, 17, "Camino 2", { "Camino/2" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::GECKO, {});// // using Gecko Engine
 
-ZCENUM_V(Browser,FLOCK,&Manufacturer::OTHER,{}, 4, "Flock", { "Flock" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::GECKO, std::make_shared<PatternBasedVersionFetcher>("Flock\\/(([0-9]+)\\.?([\\w]+)?(\\.[\\w]+)?)"));
+ZCENUM_V(Browser,FLOCK,&Manufacturer::OTHER,{}, 4, "Flock", { "Flock" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::GECKO, std::make_shared<PatternBasedVersionFetcher>("Flock\\/(([0-9]+).?([\\w]+)?(.[\\w]+)?)"));
 
 /*
 	* Thunderbird email client, based on the same Gecko engine Firefox is using.
 	*/
-ZCENUM_V(Browser,THUNDERBIRD,&Manufacturer::MOZILLA,{}, 110, "Thunderbird", { "Thunderbird" },{}, &BrowserType::EMAIL_CLIENT, &RenderingEngine::GECKO, std::make_shared<PatternBasedVersionFetcher>("Thunderbird\\/(([0-9]+)\\.?([\\w]+)?(\\.[\\w]+)?(\\.[\\w]+)?)"));// // using Gecko Engine
+ZCENUM_V(Browser,THUNDERBIRD,&Manufacturer::MOZILLA,{}, 110, "Thunderbird", { "Thunderbird" },{}, &BrowserType::EMAIL_CLIENT, &RenderingEngine::GECKO, std::make_shared<PatternBasedVersionFetcher>("Thunderbird\\/(([0-9]+).?([\\w]+)?(.[\\w]+)?(.[\\w]+)?)"));// // using Gecko Engine
 ZCENUM_V(Browser,THUNDERBIRD12,&Manufacturer::MOZILLA,&Browser::THUNDERBIRD, 185, "Thunderbird 12", { "Thunderbird/12" },{}, &BrowserType::EMAIL_CLIENT, &RenderingEngine::GECKO, {});// // using Gecko Engine
 ZCENUM_V(Browser,THUNDERBIRD11,&Manufacturer::MOZILLA,&Browser::THUNDERBIRD, 184, "Thunderbird 11", { "Thunderbird/11" },{}, &BrowserType::EMAIL_CLIENT, &RenderingEngine::GECKO, {});// // using Gecko Engine
 ZCENUM_V(Browser,THUNDERBIRD10,&Manufacturer::MOZILLA,&Browser::THUNDERBIRD, 183, "Thunderbird 10", { "Thunderbird/10" },{}, &BrowserType::EMAIL_CLIENT, &RenderingEngine::GECKO, {});// // using Gecko Engine
@@ -291,7 +291,7 @@ ZCENUM_V(Browser,THUNDERBIRD2,&Manufacturer::MOZILLA,&Browser::THUNDERBIRD, 120,
 
 ZCENUM_V(Browser,VIVALDI,&Manufacturer::OTHER,{}, 108338, "Vivaldi", { "Vivaldi" }, {}, &BrowserType::WEB_BROWSER, &RenderingEngine::BLINK, std::make_shared<PatternBasedVersionFetcher>("Vivaldi/(([\\d]+).([\\d]+).([\\d]+).([\\d]+))"));
 
-ZCENUM_V(Browser,SEAMONKEY,&Manufacturer::OTHER,{}, 15, "SeaMonkey", { "SeaMonkey" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::GECKO, std::make_shared<PatternBasedVersionFetcher>("SeaMonkey\\/(([0-9]+)\\.?([\\w]+)?(\\.[\\w]+)?)"));// using Gecko Engine
+ZCENUM_V(Browser,SEAMONKEY,&Manufacturer::OTHER,{}, 15, "SeaMonkey", { "SeaMonkey" },{}, &BrowserType::WEB_BROWSER, &RenderingEngine::GECKO, std::make_shared<PatternBasedVersionFetcher>("SeaMonkey\\/(([0-9]+).?([\\w]+)?(.[\\w]+)?)"));// using Gecko Engine
 
 ZCENUM_V(Browser,BOT,&Manufacturer::OTHER,{}, 12, "Robot/Spider", { "Googlebot", "Mediapartners-Google", "Web Preview", "bot", "Applebot" , "spider", "crawler", "Feedfetcher", "Slurp", "Twiceler", "Nutch", "BecomeBot",
 	"bingbot", "BingPreview", "Google Web Preview", "WordPress.com mShots", "Seznam", "facebookexternalhit" , "YandexMarket", "Teoma", "ThumbSniper", "Phantom",
@@ -300,7 +300,7 @@ ZCENUM_V(Browser,BOT_MOBILE,&Manufacturer::OTHER,&Browser::BOT, 20, "Mobile Robo
 
 ZCENUM_V(Browser,MOZILLA,&Manufacturer::MOZILLA,{}, 1, "Mozilla", { "Mozilla", "Moozilla" }, { "ggpht.com" }, &BrowserType::WEB_BROWSER, &RenderingEngine::OTHER, {});// rest of the mozilla browsers
 
-ZCENUM_V(Browser,CFNETWORK,&Manufacturer::OTHER,{}, 6, "CFNetwork", { "CFNetwork" },{}, &BrowserType::UNKNOWN, &RenderingEngine::OTHER, std::make_shared<PatternBasedVersionFetcher>("CFNetwork/(([\\d]+)(?:\\.([\\d]))?(?:\\.([\\d]+))?)"));// Mac OS X cocoa library
+ZCENUM_V(Browser,CFNETWORK,&Manufacturer::OTHER,{}, 6, "CFNetwork", { "CFNetwork" },{}, &BrowserType::UNKNOWN, &RenderingEngine::OTHER, std::make_shared<PatternBasedVersionFetcher>("CFNetwork/(([\\d]+)(?:.([\\d]))?(?:.([\\d]+))?)"));// Mac OS X cocoa library
 
 ZCENUM_V(Browser,EUDORA,&Manufacturer::OTHER,{}, 7, "Eudora", { "Eudora", "EUDORA" },{}, &BrowserType::EMAIL_CLIENT, &RenderingEngine::OTHER, {});// // email client by Qualcomm
 
@@ -312,7 +312,7 @@ ZCENUM_V(Browser,NETFRONT ,&Manufacturer::OTHER,{}, 10, "NetFront", { "NetFront"
 
 ZCENUM_V(Browser,EVOLUTION ,&Manufacturer::OTHER,{}, 11, "Evolution", {"CamelHttpStream"},{}, &BrowserType::EMAIL_CLIENT, &RenderingEngine::OTHER, {});// http://www.go-evolution.org/Camel.Stream
 
-ZCENUM_V(Browser,LYNX ,&Manufacturer::OTHER,{}, 13, "Lynx", { "Lynx" },{}, &BrowserType::TEXT_BROWSER, &RenderingEngine::OTHER, std::make_shared<PatternBasedVersionFetcher>("Lynx\\/(([0-9]+)\\.([\\d]+)\\.?([\\w-+]+)?\\.?([\\w-+]+)?)"));
+ZCENUM_V(Browser,LYNX ,&Manufacturer::OTHER,{}, 13, "Lynx", { "Lynx" },{}, &BrowserType::TEXT_BROWSER, &RenderingEngine::OTHER, std::make_shared<PatternBasedVersionFetcher>("Lynx\\/(([0-9]+).([\\d]+).?([\\w-+]+)?.?([\\w-+]+)?)"));
 
 ZCENUM_V(Browser,DOWNLOAD ,&Manufacturer::OTHER,{}, 16, "Downloading Tool", { "cURL","wget", "ggpht.com", "Apache-HttpClient" },{}, &BrowserType::TOOL, &RenderingEngine::OTHER, {});
 
