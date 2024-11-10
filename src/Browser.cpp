@@ -312,7 +312,7 @@ ZCENUM_V(Browser,NETFRONT ,&Manufacturer::OTHER,{}, 10, "NetFront", { "NetFront"
 
 ZCENUM_V(Browser,EVOLUTION ,&Manufacturer::OTHER,{}, 11, "Evolution", {"CamelHttpStream"},{}, &BrowserType::EMAIL_CLIENT, &RenderingEngine::OTHER, {});// http://www.go-evolution.org/Camel.Stream
 
-ZCENUM_V(Browser,LYNX ,&Manufacturer::OTHER,{}, 13, "Lynx", { "Lynx" },{}, &BrowserType::TEXT_BROWSER, &RenderingEngine::OTHER, std::make_shared<PatternBasedVersionFetcher>("Lynx\\/(([0-9]+).([\\d]+).?([\\w-+]+)?.?([\\w-+]+)?)"));
+ZCENUM_V(Browser,LYNX ,&Manufacturer::OTHER,{}, 13, "Lynx", { "Lynx" },{}, &BrowserType::TEXT_BROWSER, &RenderingEngine::OTHER, std::make_shared<PatternBasedVersionFetcher>("Lynx/(([0-9]+).([\\d]+).?([\\w\\-\\+]+)?.?([\\w\\-\\+]+)?)"));
 
 ZCENUM_V(Browser,DOWNLOAD ,&Manufacturer::OTHER,{}, 16, "Downloading Tool", { "cURL","wget", "ggpht.com", "Apache-HttpClient" },{}, &BrowserType::TOOL, &RenderingEngine::OTHER, {});
 
