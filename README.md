@@ -89,3 +89,11 @@ int main(int argc, char* argv[])
  Manufaturer: Google Inc.
 ```
 
+### 编译成库
+
+```bash
+cmake -B build -DCMAKE_INSTALL_PREFIX="./install"
+cmake --build build
+cmake --install build
+```
+

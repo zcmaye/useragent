@@ -12,7 +12,6 @@
 #include <vector>
 #include <regex>
 
-
 /**
  * Enum constants for most common browsers, including e-mail clients and bots.
  * @author zcmaye

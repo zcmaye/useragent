@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: (C) 2021 Zcmaye  <zcmaye@gmail.com>
+# SPDX-License-Identifier: MIT
+
+# - Config information for UserAgent
+# This file defines:
+#
+#  UserAgent_INCLUDE_DIR - the UserAgent include directory
+#  UserAgent_LIBRARY - Link these to use UserAgent
+
+SET(prefix "@CMAKE_INSTALL_PREFIX@")
+SET(exec_prefix "@CMAKE_INSTALL_PREFIX@")
+SET(UserAgent_FOUND "TRUE")
+
+include("${CMAKE_CURRENT_LIST_DIR}/@EXPORT_NAME@Targets.cmake")
